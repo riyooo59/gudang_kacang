@@ -85,5 +85,58 @@ CREATE TABLE student (
  type varchar(181) not null,
  brand varchar(181) not null);
 
- INSERT INTO student (type, brand) VALUES 
+ INSERT INTO inventory (type, brand) VALUES 
     ('laptop', 'asus'); 
+
+
+
+
+CREAT TABLE teacher (
+id bigint PRIMARY KEY AUTO_INCREMENT,
+name varchar(191) not null 
+
+);
+
+
+#colume teacher.id paca column classes merupakan foreign key atau penghubung antara table, 
+# teachers dan classes dimana 1 kelas itu dimiliki oleh 1 guru (one to one) atau
+# 1 guru bisa punya banyak kelas (One to Many)
+# cara mendefinisikan freign key cukup dengan 
+# CONSTRAINT (column) FOERIGN KEY (column) REFERENCES <table> (colume) (option)
+
+
+    CREATE TABLE classes (
+        id bigint PRIMARY KEY AUTO_INCREMENT,
+    teacher_id bigint not null,
+    name varchar(191) not null, 
+
+CONSTRAINT
+FOREIGN KEY (teacher.id)
+REFERENCES teacher (id) ON DELETE CASCADE
+
+    );
+
+    INSERT INTO teacher (name) VALUE ('Roy');
+
+
+# ketika kita mau menambahkan data relational kita perlu tahu dulu id dari parent table
+# dalam kasus ini parent table adalah teacher, dimana kita mau menambahkan kelas
+# terhadap teacher dengan nama Roy memiliki 2 kelas yaitu sistem informasidan teknikin informasi
+
+
+    INSERT INTO classes (teacher_id, name) VALUES 
+(1, 'sistem informasi'),
+(1, 'teknik informasi');
+
+
+# dalam proses pengambilan data  dari 2 atau lebih data kita baru melakukan pemanggilan 
+# column dengan nama <table>.<column> jika data yang ingin kita tampikan kita ganti nama,
+# column menggunakan AS sebagai alias atau pengganti sementara dari nama column
+# dalam kasus ini kita mencoba mengambil data dari table classes dengan menggunakan inner JOIN
+# dimana inner join membutuhkan foreign key sebagai kunci asing atau sebagai izin untuk 
+# mengakses table yang mau kita dalam hal ini table teachers yang akan kita ambil datanya 
+SELECT
+classes.name as nama_kelas,
+teacher.name as nama_guru
+FROM classes
+INNER JOIN teacher on classes.teacher_id = teacher.id
