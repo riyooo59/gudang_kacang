@@ -181,3 +181,200 @@ console.log("baju bersih");
 } else {
     console.log("baju kotor");
 }
+
+
+/**
+ * 
+ * @returns string 
+ * ini merupakan declaration dari sebuah function sederhana,
+ * declaratio function ditulis dengan keywords function namafunction ()
+ * jika function tidak memiliki keywords return dia merupakan void function 
+ * yang berarti function tersebut tidak mengembalikan nilai apaun ketika digunakan
+ * gae = 23 itu merupakan initialization parameter dengan nilai awal atau default value,
+ * ketika kita melakukan pemanggilan function tanpa mengirim parameter age, maka secara default 
+ * age itu bernilai 23 jika kita memakukan nilai parameter ke2 nilai age akan sesuai berdasarkan
+ * parameter kedua yang dikirimdari pemanggilan function
+ * 
+ * 
+ */
+
+function greet(name, age = 23) {
+// penggunaan string literal atau ` ketika ingin menggunakan variable/parameter harus dengan ${}
+return `Helo, ${name}. my age is ${age} yo`;
+}
+
+const greeting = greet("akbar", 24); // => jika function memiliki keywords return didalamnya bisa menggunakan variable 
+console.log(greeting);
+console.log(greet("akbar")); // => function bisa digunakan langsung tanpa variable seperti contoh berikut
+
+/**
+ *  * perkalian
+ * / pembagian
+ *  + penjumlahan
+ *  - pengurangan
+ * @param {*} a 
+ * @param {*} b 
+ * @returns 
+ */
+
+
+
+
+function add(a, b) {
+    
+ return a + b;
+    }
+    
+
+console.log(add(5, 3)); // => output selalu a + b dalam kasus ini argument nya bernilai 5 dan 3hasilnya 8 
+
+function fizzBuzz(number) {
+if (number %  2 == 0) {
+    return "fizz";
+}
+
+if (number % 3 == 0) {
+    return "buzz";
+}
+
+if (number % 5 == 0 ) {
+    return "fizzBuzz";
+}
+
+return "failed";
+}
+
+console.log(fizzBuzz(2));
+console.log(fizzBuzz(3));
+console.log(fizzBuzz(5));
+console.log(fizzBuzz(7)); 
+
+const greetAnom = function (name) {
+    return `Hello, ${name} from anonymous function`;
+}
+
+console.log(greetAnom("akbar"));
+
+// Arrow function
+const greetArrow = (name) => `Hello, ${name} from arrow function`;
+
+console.log(greetArrow("akbar"));
+
+/**
+ * class itu didefinisikan dengan keywords class
+ * class juga memiliki constructor, dimana conctructor akan selalu di akses diawal ketika
+ * kita melakukan pembuatan object baru dari class dengan keywords new car("toyota", "campry", 2020)
+ * pada dalam conctructor kita menggunakan keywords this. untuk mendefinisikan sebuah property
+ * didalam object mirip dengan tipe data obejct lainnya class juga punya property
+ * 
+ */
+
+class Car {
+    constructor(name, brand, year) {
+        this._name = name;
+        this._brand = brand;
+        this._year = year;
+    }
+
+    information() {
+        return `${this.name} have brand from ${this._brand} and build in ${this._year}`;
+    }
+// ini adalah setter untukmerubah nilai dari sebuah property
+    setName(name) {
+        this._name = name;
+    }
+// ini adalah getter untuk mengambil data dari sebuah property
+    getname() {
+        return this.name;
+    }
+    // ini adalah getter untuk mengambil data dari sebuah property
+getName() {
+    return this.name;
+}
+
+// ini merupakan contoh penggunaan seters dgn keywords set
+set name(value) {
+    if (value !== "") {
+    this._name = value;
+    } else {
+        console.log("the value must be no empty string");
+    }
+    
+}
+// ini merupakan contoh penggunaan getters dgn keywords get
+get name() {
+return this._name;
+}
+}
+
+
+const car = new Car("toyota", "camry", 2020); 
+console.log(car.information());
+//car.setName("Daihatsu");
+car.name = "Daihatsu" // menggunakan setter untuk merubah data dari property yang ada di class
+console.log(car.information());
+console.log(car.name);
+
+
+class Animal {
+    constructor(name) {
+    this.name = name;
+    }
+
+    speak() {
+        console.log(`${this.name} makes a sound.`);
+    }
+}
+/**
+ * dog merupakan sebuah children class ayng mewarisi semua yang ada didalam class animal,
+ * baik itu property maupun method
+ * 
+ */
+
+class Dog extends Animal {
+    speak() {
+        console.log("what the dog do`ing");
+    }
+ }
+
+const dog = new Dog("Holy");
+dog.speak();
+
+
+class Cat extends Animal {
+constructor(name, collor) {
+super(name)
+this.collor = collor }
+
+
+speak() {
+super.speak()
+console.log(`${this.name} moews.`);
+
+}
+}
+const cat = new Cat("whisker", "Gray")
+cat.speak();
+
+
+class MathUtil {
+static add(a, b) {
+    return a + b;
+}
+
+static multiply(a, b ) {
+    return a * b;
+}
+}
+
+console.log(MathUtil.add(1, 2));
+console.log(MathUtil.multiply(5, 3));
+
+/**
+ * naming conversion clas biasanya menggunakan pascalCase atau sebgai contoh Loandisbursement
+ * naming conversion variable biasanya itu camelCase atau variableName
+ *naming conversion function biasanya itu camelCase atau functionmName
+ *  
+ */
+
+ 

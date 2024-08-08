@@ -1,0 +1,89 @@
+# ini untuk create database
+CREATE DATABASE sample_databse;
+
+#ini untuk menghapus database
+DROP DATABASE sample_database
+
+#PRIMARY KEY membuat identitas atau nilai dari column yang diatur menjadi unique
+# AUTO_INCREMENT membuat id ketika ada data baru dia akan bertambah 1 karena dia integer
+#contoh:
+#data pertmana dengan id 1. Lalu kita membuat record (data) baru maka data baru akan,
+#memiliki id 2 karena menggunakan keywords AUNTO_INCREMENT
+#
+#varchar merupakan tipe data string saat kita menggunakan varchar kita harus, 
+#mendefinisikan berapa panjang dari varchar tsb.
+#sbg contoh jika kita membuat varchar dengan panjang 3 maka kita tidak boleh,
+#memasukan huruf atau karakter lebih dari 3 dan didefinisikan varchar(3)
+#dan keywords not null merupakan flagging atau tanda bahwa column tsb tidak boleh kosong.
+#varchar merupakan tipe data string saat kita menggunakan varchar kita harus, 
+#mendefinisikan berapa panjang dari varchar tsb.
+#sbg contoh jika kita membuat varchar dengan panjang 3 maka kita tidak boleh,
+#memasukan huruf atau karakter lebih dari 3 dan didefinisikan varchar(3)
+#dan keywords not null merupakan flagging atau tanda bahwa column tsb tidak boleh kosong.
+#Naming keywords not null merupakan flagging atau tanda bahwa column tersebut tidak boleh kosong.
+#Naming Convension table biasanya menggunakan plural atau jamak sebagai contoh students bukan student
+#Naming Conversion column harus snake_case sebagai contoh student_name
+
+# ini untuk create database
+CREATE DATABASE sample_databse;
+
+#ini untuk menghapus database
+DROP DATABASE sample_database
+
+ USE database
+#PRIMARY KEY membuat identitas atau nilai dari column yang diatur menjadi unique
+# AUTO_INCREMENT membuat id ketika ada data baru dia akan bertambah 1 karena dia integer
+#contoh:
+#data pertmana dengan id 1. Lalu kita membuat record (data) baru maka data baru akan,
+#memiliki id 2 karena menggunakan keywords AUNTO_INCREMENT
+#
+#varchar merupakan tipe data string saat kita menggunakan varchar kita harus, 
+#mendefinisikan berapa panjang dari varchar tsb.
+#sbg contoh jika kita membuat varchar dengan panjang 3 maka kita tidak boleh,
+#memasukan huruf atau karakter lebih dari 3 dan didefinisikan varchar(3)
+#dan keywords not null merupakan flagging atau tanda bahwa column tsb tidak boleh kosong.
+#Naming keywords not null merupakan flagging atau tanda bahwa column tersebut tidak boleh kosong.
+#Naming Convension table biasanya menggunakan plural atau jamak sebagai contoh students bukan student
+#Naming Conversion column harus snake_case sebagai contoh student_name
+CREATE TABLE student (
+    id bigint PRIMARY KEY AUTO_INCREMENT,
+    name varchar(191) not null,
+    grade varchar(191) not null
+    );
+#kalau VALUES itu kalian bisa menambahkan banyak sekaligus
+# kalau value kalian hanya bisa menambahkan 1 record saja.
+
+
+    INSERT INTO student (name, grade) VALUES 
+    ('Satrio Setiawan', 'B'); 
+#*artinya kita memilih semua kolom untuk ditampilkan 
+    SELECT * FROM students; 
+
+#WHERE keywords digunakan untuk sebagai filter
+#dalam kasus ini kita ingin mencari students dengan grade b
+
+    SELECT * FROM `students` WHERE grade = 'c';
+
+    #* kita ganti menjadi nama column/field yang artinya kita hanya ingin menampilkam nama dari students
+    SELECT name FROM student;
+
+    #update record
+#kalau kita tidak memasukan keywords where maka kita akan melakukan update seluruh data
+#jika kita menggunakan where atau kondisi kita akan merubah data yang ingin kita pilih
+
+
+    UPDATE students SET grade = 'D' WHERE grade = 'B';
+
+    #DELETE
+    #semua dengan update jika kita tidak menggunakan kondisi atau where maka kita akan menghapus
+    #jika kita ingin menghapus data yang kita pilih maka gunakan where
+
+    DELETE FROM student where id = 1;
+
+ #exams training
+    CREATE TABLE inventory (id bigint  PRIMARY KEY AUTO_INCREMENT,
+ type varchar(181) not null,
+ brand varchar(181) not null);
+
+ INSERT INTO student (type, brand) VALUES 
+    ('laptop', 'asus'); 
